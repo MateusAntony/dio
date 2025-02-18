@@ -2,6 +2,7 @@ package com.dio.controller;
 
 
 import com.dio.entity.Produto;
+import com.dio.exception.ProductPriceException;
 import com.dio.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class ProdutoController {
     private ProdutoService service;
 
     @PostMapping(value = "/save")
-    public ResponseEntity<Produto> salvaProduto(@RequestBody Produto produto) {
+    public ResponseEntity<Produto> salvaProduto(@RequestBody Produto produto) throws Exception {
 
         produto = service.save(produto);
 
